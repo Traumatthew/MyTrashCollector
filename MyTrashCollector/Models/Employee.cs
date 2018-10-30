@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,7 +10,11 @@ namespace MyTrashCollector.Models
     public class Employee
     {
         [Key]
-        public int CustomerId { get; set; }
+        public int EmployeeId { get; set; }
+
+        [ForeignKey("ApplicationUser")]
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
@@ -17,11 +22,9 @@ namespace MyTrashCollector.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        public string Email { get; set; }
-
-        public string Password { get; set; }
-
+        [ForeignKey("ZipCodes")]
         [Display(Name = "Route Zip Code")]
-        public string RouteZipCode { get; set; }
+        public int ZipCodeId { get; set; }
+        public ZipCodes ZipCodes { get; set; }
     }
 }

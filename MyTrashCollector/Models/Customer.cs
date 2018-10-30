@@ -10,7 +10,11 @@ namespace MyTrashCollector.Models
     public class Customer
     {
         [Key]
-        public int Id { get; set; }
+        public int CustomerId { get; set; }
+
+        [ForeignKey("ApplicationUser")]
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
@@ -18,26 +22,9 @@ namespace MyTrashCollector.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        public string Email { get; set; }
-
-        [Display(Name = "Street Address")]
-        public string StreetAddress { get; set; }
-
-        public string City { get; set; }
-
-        public string State { get; set; }
-
-        [Display(Name ="Zip Code")]
-        public string Zipcode { get; set; }
-
-        [Display(Name = "Start Day")]
-        public DateTime StartDay { get; set; }
-
-        [Display(Name = "End Day")]
-        public DateTime EndDay { get; set; }
-
-        [Display(Name = "Pick Up Day")]
-        public string PickupDay { get; set; }
+        [ForeignKey("Address")]
+        public int AddressId { get; set; }
+        public Address Address { get; set; }
 
         [Display(Name = "Account Balance")]
         public decimal AccountBalance { get; set; }

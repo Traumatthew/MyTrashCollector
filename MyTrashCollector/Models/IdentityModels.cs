@@ -33,5 +33,8 @@ namespace MyTrashCollector.Models
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<ZipCodes> ZipCodes { get; set; }
+        public DbSet<Pickups> Pickups { get; set; }
     }
 }
